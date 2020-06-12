@@ -23,7 +23,7 @@ export class RouterMedicoComponent implements OnInit {
   }
 
   guardarMedico() {
-    this.router.navigated(['medico', '123']);
+    this.router.navigate(['medico', '123']);
   }
 
 }
