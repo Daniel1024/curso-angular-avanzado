@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import Swiper from 'swiper';
+
 import { Movie } from '../../interfaces/movie-response';
 
 @Component({
@@ -6,12 +8,16 @@ import { Movie } from '../../interfaces/movie-response';
   templateUrl: './slideshow.component.html',
   styleUrls: ['./slideshow.component.css']
 })
-export class SlideshowComponent implements OnInit {
+export class SlideshowComponent implements OnInit, AfterViewInit {
 
   @Input()
   movies: Movie[];
 
   constructor() { }
+
+  ngAfterViewInit(): void {
+    const mySwiper = new Swiper('.swiper-container', {});
+  }
 
   ngOnInit(): void {
     console.log('SlideshowComponent => ', this.movies);
