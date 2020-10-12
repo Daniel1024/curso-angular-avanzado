@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { Movie } from '../../interfaces/movie-response';
 
 @Component({
@@ -13,7 +14,6 @@ export class MoviesPosterGridComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
