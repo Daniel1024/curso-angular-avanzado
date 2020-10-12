@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MovieResponse } from '../interfaces/movie-response';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Movie, MovieResponse } from '../interfaces/movie-response';
+import { Observable, of } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,7 @@ export class MoviesService {
 
   private baseUrl = 'https://api.themoviedb.org/3';
   private page = 1;
+  public loading = false;
 
   constructor(
     private http: HttpClient
@@ -24,12 +25,19 @@ export class MoviesService {
     };
   }
 
-  getCartelera(): Observable<MovieResponse> {
+  getCartelera(): Observable<Movie[]> {
+    if (this.loading) {
+      return of([]);
+    }
+
+    this.loading = true;
     return this.http.get<MovieResponse>(`${this.baseUrl}/movie/now_playing`, {
       params: this.params
     }).pipe(
+      map(({ results }) => results),
       tap(() => {
         this.page += 1;
+        this.loading = false;
       })
     );
   }

@@ -5,6 +5,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { MoviesPosterGridComponent } from './movies-poster-grid/movies-poster-grid.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 
@@ -22,7 +23,8 @@ import { MoviesPosterGridComponent } from './movies-poster-grid/movies-poster-gr
   imports: [
     CommonModule,
     RouterModule,
-    RatingModule
+    RatingModule,
+    PipesModule
   ]
 })
 export class ComponentsModule { }

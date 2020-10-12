@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
     if (pos > max) {
       this.moviesService.getCartelera().subscribe(
-        ({ results }) => {
+        (results) => {
           this.movies.push(...results);
         }
       );
@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   ) {
     this.moviesService.getCartelera()
       .subscribe(
-        ({ results }) => {
+        (results) => {
           this.movies = results;
           this.moviesSlideShow = results;
         }
