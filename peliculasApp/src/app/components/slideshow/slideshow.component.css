@@ -3,6 +3,11 @@
   width: 100%;
 }
 
+.swiper-slide {
+  background-size: cover;
+  background-image: url("src/assets/img/no-image.jpg");
+}
+
 .swiper-button-prev, .swiper-button-next {
   color: white;
 }

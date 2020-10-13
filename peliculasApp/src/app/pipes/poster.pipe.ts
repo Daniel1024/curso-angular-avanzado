@@ -6,12 +6,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PosterPipe implements PipeTransform {
 
   transform(poster: string): string {
-    console.log(poster);
+    let resp = './assets/img/no-image.jpg';
     if (poster) {
-      return `http://image.tmdb.org/t/p/w500${poster}`;
+      resp = `http://image.tmdb.org/t/p/w500${poster}`;
     }
 
-    return './src/assets/img/no-image.jpg';
+    return resp;
   }
 
 }
